@@ -1,0 +1,39 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      // Starts SketchUp with tools/su_debug_bootstrap.rb passed via
+      // -RubyStartup, which opens the debug server on port 7150. Then attach
+      // with the "Attach to SketchUp" launch configuration. See DEBUGGING.md.
+      // Keep this port in sync with .vscode/launch.json.
+      "label": "Launch SketchUp for debugging",
+      "type": "process",
+      "command": "ruby",
+      "args": [
+        "tools/debug-sketchup.rb",
+        "${input:sketchupVersion}",
+        "7150"
+      ],
+      "runOptions": {
+        "reevaluateOnRerun": false
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "sketchupVersion",
+      "type": "pickString",
+      "description": "SketchUp Version",
+      "options": [
+        "2027",
+        "2026",
+        "2025",
+        "2024"
+      ],
+      "default": "2026"
+    }
+  ]
+}
