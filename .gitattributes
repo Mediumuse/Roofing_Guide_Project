@@ -1,0 +1,51 @@
+# Enforce LF line endings for every text file in this repository.
+#
+# Root cause of the prior agent loop: Git (core.autocrlf=true on Windows) and
+# Docker/CVS-style volume mounts convert CRLF <-> LF on checkout/commit, so the
+# working tree carries CRLF, the index carries LF, and any diff surface shows a
+# whitespace-only churn that agents keep "fixing" endlessly.
+#
+# With this file + `core.autocrlf = input`, Git stores and checks out LF
+# everywhere, so the same bytes are on disk as in the repository and diffs are
+# always about real content. SketchUp, Ruby, JSON and Markdown all read LF
+# fine.
+#
+# References:
+#   - https://git-scm.com/docs/gitattributes
+#   - https://learn.microsoft.com/en-us/visualstudio/ide/editor/configuration-options-for-line-endings
+
+# Auto-detect text files; never treat unknown extensions as text.
+* text=auto
+
+# Source files must be committed and checked out as LF.
+*.rb text eol=lf
+*.md text eol=lf
+*.markdown text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.txt text eol=lf
+*.sh text eol=lf
+*.erb text eol=lf
+*.html text eol=lf
+*.erb text eol=lf
+*.sublime-build text eol=lf
+*.rspec text eol=lf
+
+# Binary assets must never be converted (they are not tracked text).
+*.png binary
+*.gif binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.tiff binary
+*.dll binary
+*.so binary
+*.dylib binary
+*.exe binary
+*.jar binary
+*.skp binary
+*.skb binary
+*.layout binary
+*.rbz binary
+*.tx binary

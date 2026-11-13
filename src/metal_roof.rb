@@ -3,9 +3,6 @@
 require 'sketchup.rb'
 require 'json'
 
-Sketchup.require 'metal_roof/support'
-Sketchup.require 'metal_roof/export_component_json'
-
 module Examples
   module MetalRoofing
     unless file_loaded?(__FILE__)
