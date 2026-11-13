@@ -5,10 +5,12 @@ module Examples
     module_function
 
     def support_path(*path_parts)
+      project_root = File.expand_path(File.join(File.dirname(__FILE__), '..', '..'))
       roots = [
-        File.expand_path(File.join(File.dirname(__FILE__), '..', '..')),
+        project_root,
         File.expand_path(File.join(File.dirname(__FILE__), '..')),
-        File.expand_path(File.dirname(__FILE__))
+        File.expand_path(File.dirname(__FILE__)),
+        File.join(project_root, 'json')
       ]
 
       roots.each do |root|

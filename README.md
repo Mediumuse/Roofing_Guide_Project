@@ -40,7 +40,7 @@ replaces the previous generated **Metal Roof Assembly**,
 so updated panel exports do not overlap older geometry. The assembly contains
 two equal roof slopes mirrored across a vertical plane at the ridge, and can be
 selected as one group. It uses
-`panel_folded.json` for the visible roof panels. The
+`json/panel_folded.json` for the visible roof panels. The
 `panel_unprepared.json` and `panel_cut.json` stage geometry is added on the
 hidden **Panel - Unprepared** and **Panel - Cut** tags. Toggle those tags to
 show each stage; the visible folded stage is on the **panel-folded** tag. Save
@@ -52,8 +52,8 @@ current sample roof is 17 feet wide along the ridge (X axis), with the ridge cap
 extending 1 inch beyond each panel end for a total cap length of 17 feet 2
 inches. This layout uses two equal 103-inch end pieces, within the 120-inch
 stock limit. Keep the three panel-stage JSON files plus
-`ridge_cap_end_cut.json`, `ridge_cap_middle_cut.json`, and
-`Ridge_Cap_End_-_Right_with_0.5_square_foldup.json` in the project root beside
+`json/ridge_cap_end_cut.json`, `json/ridge_cap_middle_cut.json`, and
+`json/Ridge_Cap_End_-_Right_with_0.5_square_foldup.json` in the `json/` directory beside
 this README. For roofs under 9 feet 6 inches, the generator uses one ridge-cap
 piece with a downturn at each gable; provide its profile as
 `ridge_cap_double_downfold.json`. Folded-panel geometry
@@ -95,7 +95,7 @@ assigned to separate **roof**, **framing**, **sheathing**, **underlay**,
 
 Select a group or component and choose **Extensions > Export Selected
 Component to JSON**. Enter a component name and choose where to save the JSON.
-Alternatively, run `create_component_json.rb` in SketchUp's Ruby Console.
+Alternatively, run `tools/create_component_json.rb` in SketchUp's Ruby Console.
 
 To import geometry, choose **Extensions > Import Component from JSON**, select
 an exported file, then set the imported component name, tag, material, and
@@ -106,7 +106,7 @@ placed independently of its source model.
 The Ruby Console export command is:
 
 ```ruby
-load 'C:/path/to/ROOFING_GUIDE_PROJECT/create_component_json.rb'
+load 'C:/path/to/ROOFING_GUIDE_PROJECT/tools/create_component_json.rb'
 ```
 
 The exporter records face front/back material names, colors, and transparency.

@@ -59,7 +59,7 @@ load 'C:/Users/cedar/OneDrive/Documents/SKETCHUP/ROOFING_GUIDE_PROJECT/src/metal
 
 - For a roof under 9 feet 6 inches long, use one continuous ridge-cap piece
   with a gable downturn at each end. Use the dedicated
-  `ridge_cap_double_downfold.json` profile and resize only its straight span.
+  `json/ridge_cap_double_downfold.json` profile and resize only its straight span.
 - A ridge-cap end piece has one gable downturn at the outer end and one
   standing-seam joint at the inboard end.
 - Middle ridge-cap pieces use standing-seam joints to connect adjacent pieces.

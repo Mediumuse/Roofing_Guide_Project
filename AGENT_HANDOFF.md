@@ -23,10 +23,7 @@ under `.agents/rules/` and any relevant skills under `.agents/skills/`.
 - The implementation builds roof geometry in SketchUp's inch-based internal
   units and uses Z as the vertical axis. Use SketchUp's unit helpers and
   `Geom::Point3d` / `Geom::Vector3d` for geometry.
-- Roof and panel profiles are currently JSON assets in the project root, next
-  to this document. Relevant files include `panel_unprepared.json`,
-  `panel_cut.json`, `panel_folded.json`, `ridge_cap_end_cut.json`,
-  `ridge_cap_middle_cut.json`, and `ridge_cap_double_downfold.json`.
+- Roof and panel profiles are stored in the `json/` directory. Relevant files include `json/panel_unprepared.json`, `json/panel_cut.json`, `json/panel_folded.json`, `json/ridge_cap_end_cut.json`, `json/ridge_cap_middle_cut.json`, and `json/ridge_cap_double_downfold.json`.
   Keep required assets in the extension package when changing packaging.
 
 ## Current behavior
@@ -43,7 +40,7 @@ under `.agents/rules/` and any relevant skills under `.agents/skills/`.
   roofs and segmented end/middle pieces for longer runs, with stock-length
   limits and seam-clearance constraints described in
   `METAL_ROOF_DESIGN_RULES.md`.
-- The visible roof panel stage is `panel_folded.json`; unprepared and cut
+- The visible roof panel stage is `json/panel_folded.json`; unprepared and cut
   stages are hidden by default. See `README.md` for current tags, placement,
   and geometry details.
 
@@ -55,7 +52,7 @@ which did not locate this project's JSON assets. Resource lookup now goes
 through `Examples::MetalRoofing.support_path` in
 `src/metal_roof/support.rb`. It checks paths relative to that helper and
 returns the first existing candidate; callers pass asset names such as
-`panel_folded.json` directly.
+`json/panel_folded.json` directly.
 
 When moving assets or packaging the extension, verify this helper against the
 installed/package layout. Do not restore `Sketchup.find_support_file` as the
